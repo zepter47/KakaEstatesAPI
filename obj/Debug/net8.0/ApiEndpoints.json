@@ -1,0 +1,403 @@
+[
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "AddHouseNumber",
+    "RelativePath": "api/Tenants/HouseNumber",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "house",
+        "Type": "JamilNativeAPI.Models.HouseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrieveHouseNumber",
+    "RelativePath": "api/Tenants/HouseNumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.HouseDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "AddMaritalStatus",
+    "RelativePath": "api/Tenants/MaritalStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MStatus",
+        "Type": "JamilNativeAPI.Models.MaritalStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "GetmaritalDetails",
+    "RelativePath": "api/Tenants/MaritalStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.MaritalStatusDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "AddNokRelationship",
+    "RelativePath": "api/Tenants/NokRelationship",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "relation",
+        "Type": "JamilNativeAPI.Models.NokRelationshipDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "GetNokDetails",
+    "RelativePath": "api/Tenants/NokRelationship",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.NokRelationshipDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "AddPaymentDetails",
+    "RelativePath": "api/Tenants/PaymentDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "amountPaid",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "idPayment",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrievePaymentDetails",
+    "RelativePath": "api/Tenants/PaymentDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdPayment",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.PaymentDetailsDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrievePreviousReading",
+    "RelativePath": "api/Tenants/PreviousUnitReading",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "house",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "AddTenantsDetals",
+    "RelativePath": "api/Tenants/TenantDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenant",
+        "Type": "JamilNativeAPI.Models.TenantDetailsDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "MaritalStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nok",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "House",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrieveTenantFirstName",
+    "RelativePath": "api/Tenants/TenantFirstName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.TenantNamesDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrieveTenantLastName",
+    "RelativePath": "api/Tenants/TenantLastName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.TenantNamesDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrieveTenantsDetails",
+    "RelativePath": "api/Tenants/TenantsDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.TenantDetailsDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "retrieveAmount",
+    "RelativePath": "api/Tenants/WaterAmount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "UpdateWaterAmount",
+    "RelativePath": "api/Tenants/WaterAmount",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "water",
+        "Type": "JamilNativeAPI.Models.WaterFactorDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "AddWaterPayment",
+    "RelativePath": "api/Tenants/WaterPayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bill",
+        "Type": "JamilNativeAPI.Models.WaterBillDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "FirstTenant",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastTenanat",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "current",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "previuos",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "house",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrieveWaterBill",
+    "RelativePath": "api/Tenants/WaterPayment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.WaterBillDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JamilNativeAPI.WeatherForecast, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

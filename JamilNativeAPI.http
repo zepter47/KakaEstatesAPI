@@ -1,0 +1,6 @@
+@JamilNativeAPI_HostAddress = http://localhost:5022
+
+GET {{JamilNativeAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

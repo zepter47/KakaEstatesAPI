@@ -14,14 +14,19 @@ namespace JamilNativeAPI.Models
 
         public DateTime AddedOn { get; set; }
 
-        public string  Tenant { get; set; } = null!;
+        public string TenantFirstName { get; set; }= null!;
+
+        public string TenantLastName { get; set; } = null!;
+
+        public string tenant { get; set; } = null!;
+
+        public string house { get; set; } = null!;
 
         public decimal payment { get; set; }
 
         public int BillNumber { get; set; }
 
         public decimal UnitsUsed { get; set; }
-
 
     }
 }

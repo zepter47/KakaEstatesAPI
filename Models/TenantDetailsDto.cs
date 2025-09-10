@@ -4,6 +4,7 @@ namespace JamilNativeAPI.Models
 {
     public class TenantDetailsDto
     {
+        public int TenantId { get; set; }
 
         public string FirstName { get; set; } = null!;
 

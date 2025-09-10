@@ -112,3 +112,4 @@ D:\Jamil\UNOProjects\JamilNativeAPI\obj\Release\net8.0\JamilNativeAPI.genruntime
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Release\net8.0\ref\JamilNativeAPI.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Release\net8.0\MySqlConnector.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Release\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Jamil\UNOProjects\JamilNativeAPI\obj\Release\net8.0\JamilNativeAPI.sourcelink.json

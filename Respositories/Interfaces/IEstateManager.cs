@@ -17,9 +17,9 @@ namespace JamilNativeAPI.Respositories.Interfaces
         public Task AddTenantDetails(TenantDetailsDto tenant, string MaritalStatus, string Nok, string House);
 
         public Task AddWaterPayment(WaterBillDto bill, string FirstTenant, 
-            string LastTenanat, decimal current, decimal previuos, string house);
+            string LastTenanat, decimal current, decimal previuos, string house, DateTime realTime);
 
-        public Task<ObservableCollection<WaterBillDto>> GetWaterPayment();
+        public Task<ObservableCollection<WaterBillDto>> GetWaterBill(DateTime startDate, DateTime endDate);
 
         public Task AddHouseNumber(HouseDto house);
 
@@ -39,9 +39,11 @@ namespace JamilNativeAPI.Respositories.Interfaces
 
         public Task<decimal> GetPreviousReading(string house);
 
-        public Task<ObservableCollection<TenantNamesDto>> GetTenantFirstName();
+        public Task<ObservableCollection<TenantDetailsDto>> GetTenantFirstName();
 
-        public Task<ObservableCollection<TenantNamesDto>> GetTenantLastName();
+        public Task<ObservableCollection<TenantDetailsDto>> GetTenantLastName();
+
+        public Task<TenantDetailsDto>GetTenant(int id);
 
     }
 }

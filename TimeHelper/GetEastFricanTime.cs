@@ -8,5 +8,13 @@
 
             return TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, eatZone);
         }
+
+        public static DateTime RetrieveRealTime(DateTime realTime)
+        {
+            var eatZone = TimeZoneInfo.FindSystemTimeZoneById("Africa/Nairobi");
+
+            return TimeZoneInfo.ConvertTimeFromUtc(realTime, eatZone);
+        }
+
     }
 }

@@ -423,6 +423,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "realTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
           }
         ],
         "requestBody": {
@@ -449,10 +457,30 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Tenants/WaterBill": {
       "get": {
         "tags": [
           "Tenants"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -680,6 +708,46 @@
         }
       }
     },
+    "/api/Tenants/Tenant/{id}": {
+      "get": {
+        "tags": [
+          "Tenants"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantDetailsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -773,6 +841,10 @@
       "TenantDetailsDto": {
         "type": "object",
         "properties": {
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "firstName": {
             "type": "string",
             "nullable": true
@@ -881,7 +953,19 @@
             "type": "string",
             "format": "date-time"
           },
+          "tenantFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "tenantLastName": {
+            "type": "string",
+            "nullable": true
+          },
           "tenant": {
+            "type": "string",
+            "nullable": true
+          },
+          "house": {
             "type": "string",
             "nullable": true
           },

@@ -182,6 +182,32 @@
   },
   {
     "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "GetResident",
+    "RelativePath": "api/Tenants/Tenant/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JamilNativeAPI.Models.TenantDetailsDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
     "Method": "AddTenantsDetals",
     "RelativePath": "api/Tenants/TenantDetails",
     "HttpMethod": "POST",
@@ -320,6 +346,37 @@
   },
   {
     "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "Method": "RetrieveWaterBill",
+    "RelativePath": "api/Tenants/WaterBill",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.WaterBillDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
     "Method": "AddWaterPayment",
     "RelativePath": "api/Tenants/WaterPayment",
     "HttpMethod": "POST",
@@ -355,29 +412,14 @@
         "Name": "house",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "realTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
-    "Method": "RetrieveWaterBill",
-    "RelativePath": "api/Tenants/WaterPayment",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.WaterBillDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "JamilNativeAPI.Controllers.WeatherForecastController",

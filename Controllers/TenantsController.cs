@@ -142,18 +142,18 @@ namespace JamilNativeAPI.Controllers
 
         [HttpPost("WaterPayment")]
         public async Task<ActionResult> AddWaterPayment(WaterBillDto bill, string FirstTenant, string LastTenanat,
-            decimal current, decimal previuos, string house)
+            decimal current, decimal previuos, string house, DateTime realTime)
         {
-            await _estateManager.AddWaterPayment(bill, FirstTenant, LastTenanat, current, previuos, house);
+            await _estateManager.AddWaterPayment(bill, FirstTenant, LastTenanat, current, previuos, house, realTime);
             return Ok();
         }
 
-        [HttpGet("WaterPayment")]
-        public async Task<ActionResult<ObservableCollection<WaterBillDto>>> RetrieveWaterBill()
+        [HttpGet("WaterBill")]
+        public async Task<ActionResult<ObservableCollection<WaterBillDto>>> RetrieveWaterBill(DateTime startDate, DateTime endDate)
         {
             try
             {
-                var houses = await _estateManager.GetWaterPayment();
+                var houses = await _estateManager.GetWaterBill(startDate, endDate);
 
                 return Ok(houses);
 
@@ -243,6 +243,22 @@ namespace JamilNativeAPI.Controllers
             {
 
                 return StatusCode(500, $"ebyembi: {ex.Message}");
+            }
+        }
+
+        [HttpGet("Tenant/{id}")]
+        public async Task<ActionResult<TenantDetailsDto>> GetResident(int id)
+        {
+            try
+            {
+                var residentsDetails = await _estateManager.GetTenant(id);
+
+                return Ok(residentsDetails);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"Failure: {ex.Message}");
             }
         }
     }

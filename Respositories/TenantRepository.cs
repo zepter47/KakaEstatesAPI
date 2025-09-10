@@ -154,7 +154,7 @@ namespace JamilNativeAPI.Respositories
             {
                 var water = new TblWaterFactor { FactorAmount = amount.FactorAmount };
 
-               var winter = await _context.TblWaterFactors.AddAsync(water);
+                var winter = await _context.TblWaterFactors.AddAsync(water);
 
                 var deck = await _context.SaveChangesAsync();
 
@@ -168,15 +168,14 @@ namespace JamilNativeAPI.Respositories
         }
 
         public async Task AddWaterPayment(WaterBillDto bill, string FirstTenant, string LastTenanat, 
-            decimal current, decimal previuos, string house)
+            decimal current, decimal previuos, string house, DateTime realTime)
         {
-            var Tenant = bill.TenantId;
-            var IdHouse = bill.HouseId;
             int IdWater = 0;
             int IdPayment = 0;
             decimal FactorAmount = 0;
             decimal AmountToPay = 0;
-            var obudde = GetEastFricanTime.RetrieveEastFricanTime();
+            //previuos = 0;
+            var obudde = GetEastFricanTime.RetrieveRealTime(realTime);
 
             // Begining a database transaction
             await using var transaction = await _context.Database.BeginTransactionAsync();
@@ -185,10 +184,10 @@ namespace JamilNativeAPI.Respositories
             try
             {
                 //Retrieving the Tenant_id for which tenats names given match the names in the database
-                Tenant = await _context.TblTenants.Where(k => k.FirstName == FirstTenant && k.LastName == LastTenanat).Select(h => h.TenantId).FirstOrDefaultAsync();
+                var Tenant = await _context.TblTenants.Where(k => k.FirstName == FirstTenant && k.LastName == LastTenanat).Select(h => h.TenantId).FirstOrDefaultAsync();
 
                 //Retrieving the House_id for which house nmber given match the names in the database
-                IdHouse = await _context.TblHouses.Where(g=>g.HouseNumber == house).Select(a=>a.HouseId).FirstOrDefaultAsync();
+                var IdHouse = await _context.TblHouses.Where(g=>g.HouseNumber == house).Select(a=>a.HouseId).FirstOrDefaultAsync();
 
                 //Retrieving the Amount per unit from the TblWaterFactor
                 FactorAmount = await _context.TblWaterFactors.Where(x => x.WaterFactorId == 1).Select(y => y.FactorAmount).FirstOrDefaultAsync();
@@ -207,14 +206,14 @@ namespace JamilNativeAPI.Respositories
 
                 await _context.SaveChangesAsync();
 
-                // Retrieving the WaterbillId after the Tblwaterbill has been inserted into the database
+                // Retrieving the WaterbillId after the Tblwaterbill record has been inserted into the database
                 IdWater = waterBill.WaterbillId;
 
                 //Inserting data into TblPayment
                 var payment = new TblPayment
                 {
                     WaterbillId = IdWater,
-                    AmountOwed = ((current - previuos) * FactorAmount),
+                    AmountOwed = Math.Abs((current - previuos) * FactorAmount),
                     AddedOn = obudde
                 };
 
@@ -344,10 +343,11 @@ namespace JamilNativeAPI.Respositories
             {
                 idHouse = _context.TblHouses.Where(d=>d.HouseNumber == house).Select(q=>q.HouseId).FirstOrDefault();
 
-                var PreviousUnits = await _context.TblWaterbills.Where(f=>f.HouseId == idHouse).OrderBy(p=>p.WaterbillId)
-                    .Select(d=>d.PreviousReading).LastOrDefaultAsync();
 
-                previousReading = PreviousUnits;
+                    var PreviousUnits = await _context.TblWaterbills.Where(f => f.HouseId == idHouse).OrderBy(p => p.WaterbillId)
+                    .Select(d => d.CurrentReading).LastOrDefaultAsync();
+
+                    previousReading = PreviousUnits;
             }
             catch (Exception)
             {
@@ -355,6 +355,42 @@ namespace JamilNativeAPI.Respositories
                 throw;
             }
             return previousReading;
+        }
+
+        public async Task<TenantDetailsDto> GetTenant(int id)
+        {
+            TenantDetailsDto tenant = new();
+
+            try
+            {
+                var resident = await _context.TblTenants.Where(y => y.TenantId == id).Include(t => t.Maritalstatus).Include(t => t.NokRelationship)
+                    .Include(t => t.House).Select(x => new TenantDetailsDto()
+                    {
+                        TenantId = x.TenantId,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
+                        NinNumber = x.NinNumber,
+                        BirthDate = x.BirthDate,
+                        Gender = x.Gender,
+                        PhoneNumber = x.PhoneNumber,
+                        OccupantsNumber = x.OccupantsNumber,
+                        TdMaritalstatus = x.Maritalstatus.Status,
+                        NextofkinName = x.NextofkinName,
+                        TdNokRelationship = x.NokRelationship.Relatioship,
+                        NokPhonenumber = x.NokPhonenumber,
+                        TdHouse = x.House.HouseNumber,
+                        AddedOn = x.AddedOn,
+                    }).FirstOrDefaultAsync();
+
+                tenant = resident;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return tenant;
         }
 
         public async Task<ObservableCollection<TenantDetailsDto>> GetTenantDetails()
@@ -368,6 +404,7 @@ namespace JamilNativeAPI.Respositories
                     .Include(t => t.House)
                     .Select(x => new TenantDetailsDto()
                 {
+                    TenantId = x.TenantId,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     NinNumber = x.NinNumber,
@@ -398,18 +435,18 @@ namespace JamilNativeAPI.Respositories
             return tenantCollection;
         }
 
-        public async Task<ObservableCollection<TenantNamesDto>> GetTenantFirstName()
+        public async Task<ObservableCollection<TenantDetailsDto>> GetTenantFirstName()
         {
-            var tenantCollections = new ObservableCollection<TenantNamesDto>();
+            var tenantCollections = new ObservableCollection<TenantDetailsDto>();
 
             try
             {
-                var FirstNames = await _context.TblTenants.Select(w => new TenantNamesDto()
+                var FirstNames = await _context.TblTenants.Select(w => new TenantDetailsDto()
                 {
                     FirstName = w.FirstName
                 }).ToListAsync();
 
-                tenantCollections = new ObservableCollection<TenantNamesDto>(FirstNames);
+                tenantCollections = new ObservableCollection<TenantDetailsDto>(FirstNames);
             }
             catch (Exception)
             {
@@ -419,18 +456,18 @@ namespace JamilNativeAPI.Respositories
             return tenantCollections;
         }
 
-        public async Task<ObservableCollection<TenantNamesDto>> GetTenantLastName()
+        public async Task<ObservableCollection<TenantDetailsDto>> GetTenantLastName()
         {
-            var tenantCollection = new ObservableCollection<TenantNamesDto>();
+            var tenantCollection = new ObservableCollection<TenantDetailsDto>();
 
             try
             {
-                var LastNames = await _context.TblTenants.Select(w => new TenantNamesDto()
+                var LastNames = await _context.TblTenants.Select(w => new TenantDetailsDto()
                 {
                     LastName = w.LastName
                 }).ToListAsync();
 
-                tenantCollection = new ObservableCollection<TenantNamesDto>(LastNames);
+                tenantCollection = new ObservableCollection<TenantDetailsDto>(LastNames);
             }
             catch (Exception)
             {
@@ -459,17 +496,23 @@ namespace JamilNativeAPI.Respositories
             
         }
 
-        public async Task<ObservableCollection<WaterBillDto>> GetWaterPayment()
+        public async Task<ObservableCollection<WaterBillDto>> GetWaterBill(DateTime startDate, DateTime endDate)
         {
             var billList = new ObservableCollection<WaterBillDto>();
 
             try
             {
-                var Lists = await _context.TblWaterbills.Include(y => y.Tenant).Include(y => y.TblPayment)
+                var Lists = await _context.TblWaterbills.Include(y => y.Tenant).Include(y => y.TblPayment).Include(y => y.House)
+                    .Where(x => x.AddedOn >= startDate && x.AddedOn <= endDate)
                     .Select(x => new WaterBillDto()
                     {
-                        Tenant = $"{x.Tenant.FirstName} {x.Tenant.LastName}",
+                        //TenantFirstName = x.Tenant.FirstName ,
+                        //TenantLastName = x.Tenant.LastName ,
+                        tenant = $"{x.Tenant.FirstName} {x.Tenant.LastName}",
                         payment = x.TblPayment.AmountOwed,
+                        house = x.House.HouseNumber,
+                        PreviousReading=x.PreviousReading,
+                        CurrentReading=x.CurrentReading,
                         AddedOn= x.AddedOn,
                         BillNumber = x.WaterbillId,
                         UnitsUsed = (x.CurrentReading - x.PreviousReading)

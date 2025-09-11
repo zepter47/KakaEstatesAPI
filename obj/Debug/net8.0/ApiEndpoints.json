@@ -109,79 +109,6 @@
   },
   {
     "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
-    "Method": "AddPaymentDetails",
-    "RelativePath": "api/Tenants/PaymentDetails",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "amountPaid",
-        "Type": "System.Decimal",
-        "IsRequired": false
-      },
-      {
-        "Name": "idPayment",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
-    "Method": "RetrievePaymentDetails",
-    "RelativePath": "api/Tenants/PaymentDetails",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "IdPayment",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.PaymentDetailsDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
-    "Method": "RetrievePreviousReading",
-    "RelativePath": "api/Tenants/PreviousUnitReading",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "house",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Decimal",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
     "Method": "GetResident",
     "RelativePath": "api/Tenants/Tenant/{id}",
     "HttpMethod": "GET",
@@ -298,9 +225,82 @@
     ]
   },
   {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
+    "Method": "AddPaymentDetails",
+    "RelativePath": "api/Water/PaymentDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "amountPaid",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "idPayment",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
+    "Method": "RetrievePaymentDetails",
+    "RelativePath": "api/Water/PaymentDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdPayment",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.ObjectModel.ObservableCollection\u00601[[JamilNativeAPI.Models.PaymentDetailsDto, JamilNativeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
+    "Method": "RetrievePreviousReading",
+    "RelativePath": "api/Water/PreviousUnitReading",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "house",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
     "Method": "retrieveAmount",
-    "RelativePath": "api/Tenants/WaterAmount",
+    "RelativePath": "api/Water/WaterAmount",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -324,9 +324,9 @@
     ]
   },
   {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
     "Method": "UpdateWaterAmount",
-    "RelativePath": "api/Tenants/WaterAmount",
+    "RelativePath": "api/Water/WaterAmount",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -345,9 +345,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
     "Method": "RetrieveWaterBill",
-    "RelativePath": "api/Tenants/WaterBill",
+    "RelativePath": "api/Water/WaterBill",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -376,9 +376,9 @@
     ]
   },
   {
-    "ContainingType": "JamilNativeAPI.Controllers.TenantsController",
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
     "Method": "AddWaterPayment",
-    "RelativePath": "api/Tenants/WaterPayment",
+    "RelativePath": "api/Water/WaterPayment",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

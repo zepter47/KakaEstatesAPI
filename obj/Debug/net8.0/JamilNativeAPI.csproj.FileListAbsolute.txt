@@ -25,6 +25,8 @@ D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Microsoft.Extensions.Loggin
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\MySqlConnector.dll
+D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -93,6 +95,7 @@ D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.AssemblyInfo
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.csproj.CoreCompileInputs.cache
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.sourcelink.json
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\scopedcss\bundle\JamilNativeAPI.styles.css
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets.build.json
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets.development.json
@@ -103,13 +106,10 @@ D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets\msbuild.bui
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.JamilNativeAPI.props
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.JamilNativeAPI.props
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNat.AB9171CD.Up2Date
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\refint\JamilNativeAPI.dll
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.pdb
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.genruntimeconfig.cache
 D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\ref\JamilNativeAPI.dll
-D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\MySqlConnector.dll
-D:\Jamil\UNOProjects\JamilNativeAPI\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
-D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-D:\Jamil\UNOProjects\JamilNativeAPI\obj\Debug\net8.0\JamilNativeAPI.sourcelink.json

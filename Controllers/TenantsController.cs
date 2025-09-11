@@ -10,9 +10,9 @@ namespace JamilNativeAPI.Controllers
     [ApiController]
     public class TenantsController : ControllerBase
     {
-        private readonly IEstateManager _estateManager;
+        private readonly ITenantManager _estateManager;
 
-        public TenantsController(IEstateManager estateManager)
+        public TenantsController(ITenantManager estateManager)
         {
             _estateManager = estateManager;
         }
@@ -125,92 +125,6 @@ namespace JamilNativeAPI.Controllers
         //    return Ok();
         //}
 
-        [HttpGet("WaterAmount")]
-        public async Task<ActionResult<decimal>> retrieveAmount(int id = 1)
-        {
-            var amount = await _estateManager.GetWaterAmount(id);
-
-            return Ok(amount);
-        }
-
-        [HttpPut("WaterAmount")]
-        public async Task<ActionResult> UpdateWaterAmount(WaterFactorDto water, int id = 1)
-        {
-            await _estateManager.UpdateWaterAmount(water, id);
-            return Ok();
-        }
-
-        [HttpPost("WaterPayment")]
-        public async Task<ActionResult> AddWaterPayment(WaterBillDto bill, string FirstTenant, string LastTenanat,
-            decimal current, decimal previuos, string house, DateTime realTime)
-        {
-            await _estateManager.AddWaterPayment(bill, FirstTenant, LastTenanat, current, previuos, house, realTime);
-            return Ok();
-        }
-
-        [HttpGet("WaterBill")]
-        public async Task<ActionResult<ObservableCollection<WaterBillDto>>> RetrieveWaterBill(DateTime startDate, DateTime endDate)
-        {
-            try
-            {
-                var houses = await _estateManager.GetWaterBill(startDate, endDate);
-
-                return Ok(houses);
-
-            }
-            catch (Exception ex)
-            {
-
-                return StatusCode(500, $"server error: {ex.Message}");
-            }
-
-
-        }
-
-        [HttpPost("PaymentDetails")]
-        public async Task<ActionResult> AddPaymentDetails(decimal amountPaid, int idPayment)
-        {
-            await _estateManager.AddPaymentDetails(amountPaid, idPayment);
-
-            return Ok();
-        }
-
-        [HttpGet("PaymentDetails")]
-        public async Task<ActionResult<ObservableCollection<PaymentDetailsDto>>> RetrievePaymentDetails(int IdPayment)
-        {
-            try
-            {
-                var houses = await _estateManager.GetPaymentDetails(IdPayment);
-
-                return Ok(houses);
-
-            }
-            catch (Exception ex)
-            {
-
-                return StatusCode(500, $"server error: {ex.Message}");
-
-            }
-
-        }
-
-        [HttpGet("PreviousUnitReading")]
-        public async Task<ActionResult<decimal>> RetrievePreviousReading(string house)
-        {
-            try
-            {
-                var unit = await _estateManager.GetPreviousReading(house);
-
-                return Ok(unit);
-
-            }
-            catch (Exception ex)
-            {
-
-                return StatusCode(500, $"ebyembi: {ex.Message}");
-            }
-
-        }
 
         [HttpGet("TenantFirstName")]
         public async Task<ActionResult<ObservableCollection<TenantNamesDto>>> RetrieveTenantFirstName()

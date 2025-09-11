@@ -7,9 +7,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IEstateManager, TenantRepository>();
-
-
+builder.Services.AddScoped<ITenantManager, TenantRepository>();
+builder.Services.AddScoped<IWaterManager, WaterRepository>();
 
 //Load configuration
 var configuration = builder.Configuration;
@@ -47,11 +46,11 @@ new MySqlServerVersion(new Version(8, 0, 40))
 var app = builder.Build();
 
 //Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-//}
+}
 
 
 app.UseHttpsRedirection();

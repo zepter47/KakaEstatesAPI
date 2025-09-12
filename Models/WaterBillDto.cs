@@ -24,6 +24,8 @@ namespace JamilNativeAPI.Models
 
         public decimal payment { get; set; }
 
+        public decimal AmountRemaining { get; set; }
+
         public int BillNumber { get; set; }
 
         public decimal UnitsUsed { get; set; }

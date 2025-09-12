@@ -26,7 +26,7 @@ namespace JamilNativeAPI.Respositories.Interfaces
 
         public Task<ObservableCollection<TenantDetailsDto>> GetTenantLastName();
 
-        public Task<TenantDetailsDto>GetTenant(int id);
+        public Task<TenantDetailsDto>GetTenantById(int id);
 
     }
 }

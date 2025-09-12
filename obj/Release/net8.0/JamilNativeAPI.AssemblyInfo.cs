@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JamilNativeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+710f34356e73b0e706852cc4d71b6b58f96185e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24d487dcebdac96086bfd97d858751dbcf27c996")]
 [assembly: System.Reflection.AssemblyProductAttribute("JamilNativeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JamilNativeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

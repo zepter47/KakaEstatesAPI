@@ -165,7 +165,7 @@ namespace JamilNativeAPI.Controllers
         {
             try
             {
-                var residentsDetails = await _estateManager.GetTenant(id);
+                var residentsDetails = await _estateManager.GetTenantById(id);
 
                 return Ok(residentsDetails);
             }

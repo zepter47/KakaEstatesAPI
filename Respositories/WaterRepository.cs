@@ -223,7 +223,8 @@ namespace JamilNativeAPI.Respositories
 
             try
             {
-                var Lists = await _context.TblWaterbills.Include(y => y.Tenant).Include(y => y.TblPayment).Include(y => y.House)
+                var Lists = await _context.TblWaterbills.Include(y => y.Tenant).Include(y => y.TblPayment).Include(y => y.House).
+                    Include(y=>y.TblPayment.TblPaymentDetails)
                     .Where(x => x.AddedOn >= startDate && x.AddedOn <= endDate)
                     .Select(x => new WaterBillDto()
                     {
@@ -236,7 +237,9 @@ namespace JamilNativeAPI.Respositories
                         CurrentReading = x.CurrentReading,
                         AddedOn = x.AddedOn,
                         BillNumber = x.WaterbillId,
-                        UnitsUsed = (x.CurrentReading - x.PreviousReading)
+                        UnitsUsed = (x.CurrentReading - x.PreviousReading),
+                        AmountRemaining = x.TblPayment.TblPaymentDetails.
+                        OrderByDescending(d=>d.AddedOn).Select(f=>f.AmountRemaining).FirstOrDefault()
                     }).ToListAsync();
 
                 billList = new ObservableCollection<WaterBillDto>(Lists);

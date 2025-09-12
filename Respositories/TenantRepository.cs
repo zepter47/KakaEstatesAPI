@@ -178,7 +178,7 @@ namespace JamilNativeAPI.Respositories
             return relationshipCollection;
         }
 
-        public async Task<TenantDetailsDto> GetTenant(int id)
+        public async Task<TenantDetailsDto> GetTenantById(int id)
         {
             TenantDetailsDto tenant = new();
 

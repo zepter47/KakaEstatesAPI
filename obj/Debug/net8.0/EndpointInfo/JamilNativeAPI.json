@@ -973,6 +973,10 @@
             "type": "number",
             "format": "double"
           },
+          "amountRemaining": {
+            "type": "number",
+            "format": "double"
+          },
           "billNumber": {
             "type": "integer",
             "format": "int32"

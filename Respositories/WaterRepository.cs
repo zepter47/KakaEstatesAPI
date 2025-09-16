@@ -152,7 +152,7 @@ namespace JamilNativeAPI.Respositories
             }
         }
 
-        public async Task<ObservableCollection<PaymentDetailsDto>> GetPaymentDetails(int idPayment)
+        public async Task<ObservableCollection<PaymentDetailsDto>> GetPaymentDetailsById(int idPayment)
         {
             var PaymentList = new ObservableCollection<PaymentDetailsDto>();
 
@@ -230,6 +230,7 @@ namespace JamilNativeAPI.Respositories
                     {
                         //TenantFirstName = x.Tenant.FirstName ,
                         //TenantLastName = x.Tenant.LastName ,
+                        WaterBillId = x.WaterbillId,
                         tenant = $"{x.Tenant.FirstName} {x.Tenant.LastName}",
                         payment = x.TblPayment.AmountOwed,
                         house = x.House.HouseNumber,

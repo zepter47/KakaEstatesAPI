@@ -18,7 +18,7 @@ namespace JamilNativeAPI.Respositories.Interfaces
 
         public Task AddPaymentDetails(decimal amountPaid, int idPayment);
 
-        public Task<ObservableCollection<PaymentDetailsDto>> GetPaymentDetails(int idPayment);
+        public Task<ObservableCollection<PaymentDetailsDto>> GetPaymentDetailsById(int idPayment);
 
         public Task<decimal> GetPreviousReading(string house);
 

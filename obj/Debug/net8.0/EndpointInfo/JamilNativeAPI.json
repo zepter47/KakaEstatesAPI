@@ -933,6 +933,10 @@
       "WaterBillDto": {
         "type": "object",
         "properties": {
+          "waterBillId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "tenantId": {
             "type": "integer",
             "format": "int32"

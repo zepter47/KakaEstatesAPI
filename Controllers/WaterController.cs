@@ -72,7 +72,7 @@ namespace JamilNativeAPI.Controllers
         {
             try
             {
-                var houses = await _waterManager.GetPaymentDetails(IdPayment);
+                var houses = await _waterManager.GetPaymentDetailsById(IdPayment);
 
                 return Ok(houses);
 

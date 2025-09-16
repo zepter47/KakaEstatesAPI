@@ -4,6 +4,8 @@ namespace JamilNativeAPI.Models
 {
     public class WaterBillDto
     {
+        public int WaterBillId { get; set; }
+
         public int TenantId { get; set; }
 
         public int HouseId { get; set; }

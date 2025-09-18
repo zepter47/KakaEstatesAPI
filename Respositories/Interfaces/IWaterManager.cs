@@ -22,6 +22,8 @@ namespace JamilNativeAPI.Respositories.Interfaces
 
         public Task<decimal> GetPreviousReading(string house);
 
+        public Task<decimal> GetLatestAmount(int idPayment);
+
 
     }
 }

@@ -275,5 +275,25 @@ namespace JamilNativeAPI.Respositories
             }
         }
 
+
+        public async Task<decimal> GetLatestAmount(int idPayment)
+        {
+            decimal LatestAmount = 0;
+            try
+            {
+
+                var AmountOwed = await _context.TblPaymentDetails.Where(x => x.PaymentId == idPayment)
+                    .OrderBy(r => r.PaymentDetailsId).Select(y => y.AmountRemaining).LastOrDefaultAsync();
+
+                LatestAmount = AmountOwed;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return LatestAmount;
+        }
+
     }
 }

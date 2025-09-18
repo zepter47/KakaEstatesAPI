@@ -104,6 +104,25 @@ namespace JamilNativeAPI.Controllers
 
         }
 
+        [HttpGet("LatestAmount")]
+        public async Task<ActionResult<decimal>> RetreiveLatestAmount(int idPayment)
+        {
+            try
+            {
+                var unit = await _waterManager.GetLatestAmount(idPayment);
+
+                return Ok(unit);
+
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"ebyembi: {ex.Message}");
+            }
+
+
+        }
+
 
     }
 }

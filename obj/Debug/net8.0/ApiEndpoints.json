@@ -226,6 +226,32 @@
   },
   {
     "ContainingType": "JamilNativeAPI.Controllers.WaterController",
+    "Method": "RetreiveLatestAmount",
+    "RelativePath": "api/Water/LatestAmount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPayment",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JamilNativeAPI.Controllers.WaterController",
     "Method": "AddPaymentDetails",
     "RelativePath": "api/Water/PaymentDetails",
     "HttpMethod": "POST",

@@ -179,14 +179,14 @@ namespace JamilNativeAPI.Respositories
         public async Task<decimal> GetPreviousReading(string house)
         {
             decimal previousReading = 0;
-            int idHouse = 0;
+            //int idHouse = 0;
 
             try
             {
-                idHouse = _context.TblHouses.Where(d => d.HouseNumber == house).Select(q => q.HouseId).FirstOrDefault();
+                //idHouse = _context.TblHouses.Where(d => d.HouseNumber == house).Select(q => q.HouseId).FirstOrDefault();
 
 
-                var PreviousUnits = await _context.TblWaterbills.Where(f => f.HouseId == idHouse).OrderBy(p => p.WaterbillId)
+                var PreviousUnits = await _context.TblWaterbills.Where(f => f.House.HouseNumber== house).OrderBy(p => p.WaterbillId)
                 .Select(d => d.CurrentReading).LastOrDefaultAsync();
 
                 previousReading = PreviousUnits;
@@ -223,9 +223,8 @@ namespace JamilNativeAPI.Respositories
 
             try
             {
-                var Lists = await _context.TblWaterbills.Include(y => y.Tenant).Include(y => y.TblPayment).Include(y => y.House).
-                    Include(y=>y.TblPayment.TblPaymentDetails)
-                    .Where(x => x.AddedOn >= startDate && x.AddedOn <= endDate)
+                var Lists = await _context.TblWaterbills.
+                    Where(x => x.AddedOn >= startDate && x.AddedOn <= endDate)
                     .Select(x => new WaterBillDto()
                     {
                         //TenantFirstName = x.Tenant.FirstName ,
@@ -294,6 +293,26 @@ namespace JamilNativeAPI.Respositories
             }
             return LatestAmount;
         }
+
+        public async Task<string> GetTenantByWaterBillId(int idPayment)
+        {
+            string tenant =string.Empty;
+
+            try
+            {
+                var tenantName = await _context.TblWaterbills.Where(x => x.TblPayment.PaymentId == idPayment)
+                    .Select(y => y.Tenant).FirstOrDefaultAsync();
+
+                tenant= $"{tenantName.FirstName} {tenantName.LastName}";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return tenant;
+        }
+
 
     }
 }

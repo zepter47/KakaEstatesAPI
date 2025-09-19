@@ -24,6 +24,9 @@ namespace JamilNativeAPI.Respositories.Interfaces
 
         public Task<decimal> GetLatestAmount(int idPayment);
 
+        public Task<string> GetTenantByWaterBillId(int idPayment);
+
+
 
     }
 }

@@ -14,7 +14,7 @@ namespace JamilNativeAPI.Controllers
 
         public WaterController(IWaterManager waterManager)
         {
-            _waterManager= waterManager;
+            _waterManager = waterManager;
         }
 
         [HttpGet("WaterAmount")]
@@ -119,10 +119,24 @@ namespace JamilNativeAPI.Controllers
 
                 return StatusCode(500, $"ebyembi: {ex.Message}");
             }
-
-
         }
 
+        [HttpGet("TenantByBill")]
+        public async Task<ActionResult<decimal>> RetreiveTenantByWaterBill(int idPayment)
+        {
+            try
+            {
+                var unit = await _waterManager.GetTenantByWaterBillId(idPayment);
 
+                return Ok(unit);
+
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"ebyembi: {ex.Message}");
+            }
+
+        }
     }
 }

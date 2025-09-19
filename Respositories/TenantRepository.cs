@@ -184,8 +184,8 @@ namespace JamilNativeAPI.Respositories
 
             try
             {
-                var resident = await _context.TblTenants.Where(y => y.TenantId == id).Include(t => t.Maritalstatus).Include(t => t.NokRelationship)
-                    .Include(t => t.House).Select(x => new TenantDetailsDto()
+                var resident = await _context.TblTenants.Where(y => y.TenantId == id)
+                    .Select(x => new TenantDetailsDto()
                     {
                         TenantId = x.TenantId,
                         FirstName = x.FirstName,
@@ -220,9 +220,7 @@ namespace JamilNativeAPI.Respositories
 
             try
             {
-                var tenantCol = await _context.TblTenants.Include(t => t.Maritalstatus)
-                    .Include(t => t.NokRelationship)
-                    .Include(t => t.House)
+                var tenantCol = await _context.TblTenants
                     .Select(x => new TenantDetailsDto()
                 {
                     TenantId = x.TenantId,
